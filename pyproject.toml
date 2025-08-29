@@ -4,30 +4,25 @@ build-backend = "hatchling.build"
 
 [project]
 name = "simple-tui"
-version = "0.1.0"
+version = "0.1.1"
 description = "A minimal Textual TUI demo"
 readme = "README.md"
 requires-python = ">=3.9"
-license = "MIT"
-authors = [{ name = "Your Name" }]
+license = { text = "MIT" }
+authors = [{ name = "Charlie Sands" }]
 dependencies = ["textual>=0.58.0"]
 
-# This creates the one-word CLI
 [project.scripts]
 simpletui = "simple_tui.app:main"
 
-[tool.hatch.build.targets.wheel]
-packages = ["simple_tui"]
-
+# ---- Hatch build config (single, deduped) ----
 [tool.hatch.build]
 include = [
+  "simple_tui/**/*.py",
   "simple_tui/**/*.css",
+  "README.md",
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = ["simple_tui"]
-
-# (Optional: belt & braces)
-[tool.hatch.build.targets.wheel.force-include]
-"simple_tui/simple_tui.css" = "simple_tui/simple_tui.css"
 
