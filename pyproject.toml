@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "simple-tui"
+version = "0.1.0"
+description = "A minimal Textual TUI demo"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Your Name" }]
+dependencies = ["textual>=0.58.0"]
+
+# This creates the one-word CLI
+[project.scripts]
+simpletui = "simple_tui.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["simple_tui"]
+
