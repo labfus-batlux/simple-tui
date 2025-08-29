@@ -19,3 +19,15 @@ simpletui = "simple_tui.app:main"
 [tool.hatch.build.targets.wheel]
 packages = ["simple_tui"]
 
+[tool.hatch.build]
+include = [
+  "simple_tui/**/*.css",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["simple_tui"]
+
+# (Optional: belt & braces)
+[tool.hatch.build.targets.wheel.force-include]
+"simple_tui/simple_tui.css" = "simple_tui/simple_tui.css"
+

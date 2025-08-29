@@ -1,9 +1,11 @@
+# simple_tui/app.py
+from importlib.resources import files
 from textual.app import App, ComposeResult
 from textual.widgets import Header, Footer, Static
 from textual.containers import Horizontal
 
 class SimpleTUI(App):
-    CSS_PATH = "simple_tui.css"
+    CSS_PATH = files(__package__) / "simple_tui.css"
     BINDINGS = [("q", "quit", "Quit")]
 
     def compose(self) -> ComposeResult:
@@ -17,3 +19,4 @@ class SimpleTUI(App):
 
 def main():
     SimpleTUI().run()
+
